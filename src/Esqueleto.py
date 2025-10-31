@@ -58,3 +58,6 @@ print("DINERO PARA SOBRE: $", round(sobre, 2))
 print("FECHA DEL CORTE:", fecha)
 print("==============================================")
 print("CORTE FINALIZADO CORRECTAMENTE")
+
+
+#   Este código es solo del corte del día, más adelante agregaremos cambios
