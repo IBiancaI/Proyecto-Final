@@ -61,3 +61,4 @@ print("CORTE FINALIZADO CORRECTAMENTE")
 
 
 #   Este código es solo del corte del día, más adelante agregaremos cambios
+
