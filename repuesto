@@ -1,0 +1,35 @@
+
+def pedir_float (prompt, minimo = None):
+    """"Pide un número (float) con validación y devuelve el valor."""
+    while True:
+        try:
+            v = float(input(prompt))
+            if minimo is not None and v < minimo :
+                print(f"(Error) Debe ser >={minimo}.")
+                continue
+            return v
+        except ValueError:
+            print("Entrada invalida. Ingresa un número válido.")
+            def mostrar_resumen ():
+    """"Muestra un resumen sencillo del día.""""
+    print("\n================================================")
+    print("         R E S U M E N   D E L    D I A    ")
+    print("\n================================================")
+    peli_top = determinar_mas_vendido(peliculas_contador)
+    combo_top = determinar_mas_vendido(combos_contador)
+
+    if peli_top is None:
+        print("Peliculas más vista: Ninguna venta aún.")
+    elif isinstance(peli_top, list):
+        print("Peliculas más vistas (empatadas):",",".join(combo_top))
+    else:
+        print("Combo más vendido:", combo_top)
+
+        print("TOTAL DE VENTAS DEL DIA: $", round(total_general, 2))
+        print("Detalles de ventas por pelicula:")
+        for k, v in peliculas_contador.items():
+            print(f"- {k}: {v} boletos/ventas")
+            print("Detalles de ventas por combo:")
+            for k, v in combos_contador.items():
+                print(f"- {k}: {v} unidades")
+                print("=====================================================================")
