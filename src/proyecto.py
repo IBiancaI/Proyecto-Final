@@ -147,16 +147,19 @@ def corte_de_caja ():
 
     #Fecha del corte
     fecha = ""
-    while not fecha:
+    while True:
         fecha = input("Ingresa la fecha del corte (DD/MM/AAAA):").strip()
+        break
 
-print("\nBilletes:")
-b1000 = pedir_entero("$1000: ", minimo=0)
-b500  = pedir_entero("$500: ", minimo=0)
-b200 = pedir_entero("$200:", minimo=0)
-b100 = pedir_entero("$100:", minimo=0)
-b50 = pedir_entero("$50:", minimo=0)
-b20 = pedir_entero("$20:", minimo=0)
+    print("\nIngreso de billetes:")
+    b1000 = pedir_entero("$1000: ", minimo=0)
+    b500  = pedir_entero("$500: ", minimo=0)
+    b200 = pedir_entero("$200:", minimo=0)
+    b100 = pedir_entero("$100:", minimo=0)
+    b50 = pedir_entero("$50:", minimo=0)
+    b20 = pedir_entero("$20:", minimo=0)
+
+    
 
 
 
