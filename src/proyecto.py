@@ -15,7 +15,9 @@ combos_precios = {
     "palomitas y dos raspados": 170.00,
     "palomitas y nachos": 199.00
 }
-
+print("==============================================")
+print("       BIENVENIDO AL CINE PYTHON")
+print("==============================================")
 def pedir_entero (prompt,minimo=None, Maximo=None):
     while True:
         try:
@@ -31,7 +33,7 @@ def pedir_entero (prompt,minimo=None, Maximo=None):
             print("Entrafa invalida. Ingresa un numero entero.")
 
 def pedir_float (prompt, minimo = None):
-    """"Pide un número (float) con validación y devuelve el valor."""
+
     while True:
         try:
             v = float(input(prompt))
@@ -56,66 +58,58 @@ def registrar_ventas ():
     num_clientes = pedir_entero("¿Cuántos clientes se registrarán hoy? (0 para volver): ", minimo=0)
     if num_clientes == 0:
         return
+    
+    for i in range (num_clientes):
+        print ("\n------------------------------------------------------------------------------")
+        print (f"\n                            CLIENTE {i+1}")
+        print ("\n------------------------------------------------------------------------------")
+        nombre = input ("Ingresa nombre: ").strip()
+        edad = pedir_entero ("Ingresa la edad: ", nombre)
 
-    for i in range(num_clientes):
-        print("\n------------------------------------------------------------------------------")
-        print(f"                            CLIENTE {i+1}")
-        print("------------------------------------------------------------------------------")
-        nombre = input("Ingresa nombre: ").strip()
-        edad = pedir_entero("Ingresa la edad: ", minimo=0)
+        print ("\nPelículas disponibles")
+        print ("\n1. Spiderman")
+        print ("\n2. Terrifier 3")
+        print ("\n3. PacMan")
 
-        # Películas disponibles (mapear opción numérica a llaves internas)
-        print("\nPelículas disponibles")
-        print("1. Spiderman")
-        print("2. Terrifier 3")
-        print("3. Pac Man")
-        pelicula_op = input("Elige una película (1-3): ").strip()
+        pelicula_op = input ("Elige una película (1-3): ").strip()
+    if pelicula_op == "1":
+        pelicula = "spiderman"
+    elif pelicula_op == "2":
+        pelicula = "Terrifier 3" 
+    elif pelicula_op == "3":
+        pelicula = "PacMan"
+    else:
+        print ("Número inválido")
 
-        if pelicula_op == "1":
-            pelicula = "spiderman"
-        elif pelicula_op == "2":
-            pelicula = "terrifier 3"
-        elif pelicula_op == "3":
-            pelicula = "pac_man"
-        else:
-            print("Número inválido, se registrará como 'spiderman' por defecto.")
-            pelicula = "spiderman"
+    peliculas_contador [pelicula] += 1
 
-        peliculas_contador[pelicula] += 1
 
-        # Combos disponibles (mapear opción numérica a llaves internas)
-        print("\nCombos disponibles")
-        print("1. Palomitas con Coca-Cola - $", combos_precios["palomitas con cocacola"])
-        print("2. Palomitas y dos raspados - $", combos_precios["palomitas y dos raspados"])
-        print("3. Palomitas y nachos - $", combos_precios["palomitas y nachos"])
-        combo_op = input("Elige un combo (1-3): ").strip()
+    print ("\n Combos disponibles")
+    print ("\n 1. Palomitas con Coca-cola - $250")
+    print ("\n 2. Palomitas y dos raspados - $ 280")
+    print ("\n 3. Palomitas y nachos - $")
+    combo_op = input ("Elige un combo (1-3): ").strip()
+    if combo_op == "1":
+        combo = "Palomitas con Coca-cola"
+    elif combo_op == "2":
+        combo = "Palomitas y dos raspados"
+    elif combo_op == "3":
+        combo = "Palomitas y nachos"
+    else:
+        print ("Número inválido")
 
-        if combo_op == "1":
-            combo_key = "palomitas con cocacola"
-        elif combo_op == "2":
-            combo_key = "palomitas y dos raspados"
-        elif combo_op == "3":
-            combo_key = "palomitas y nachos"
-        else:
-            print("Número inválido, se registrará 'palomitas con cocacola' por defecto.")
-            combo_key = "palomitas con cocacola"
-        
-        precio_combo = combos_precios[combo_key]
-        combos_contador[combo_key] += 1
-        total_cliente = precio_combo
+    precio_combo = combos_precios[combo]
+    combos_contador [combo] += 1
+    total_cliente = precio_combo
 
-        total_general += total_cliente
+    total_general += total_cliente
 
-        # Mostrar registro del cliente
-        print("\nRegistro de cliente")
-        print("Nombre:", nombre)
-        print("Edad:", edad)
-        # muestro nombres "bonitos" al usuario
-        peli_mostrar = pelicula.replace("_", " ").title()
-        combo_mostrar = combo_key.replace("cocacola", "Coca-Cola").title()
-        print("Película:", peli_mostrar)
-        print("Combo:", combo_mostrar)
-        print("Total a pagar: $", round(total_cliente, 2))
+    print ("\nRegistro de cliente")
+    print ("Nombre:", nombre)
+    print ("Edad", edad)
+    print ("Película", pelicula)
+    print ("Combo", combo)
+    print ("Total a pagar: $", round(total_cliente, 2))
 
 
 def determinar_mas_vendido (contador_dict):
