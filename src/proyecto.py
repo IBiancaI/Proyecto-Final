@@ -165,7 +165,9 @@ def corte_de_caja ():
             fecha = input("Ingresa la fecha del corte (DD/MM/AAAA):").strip()
             break
 
-    print("\nIngreso de billetes:")
+    print("\n-------------------------------")
+    print("\nIngreso de billetes")
+    print("\n-------------------------------")
     b1000 = pedir_entero("$1000: ", minimo=0)
     b500  = pedir_entero("$500: ", minimo=0)
     b200 = pedir_entero("$200:", minimo=0)
