@@ -169,6 +169,33 @@ def corte_de_caja ():
     b50 = pedir_entero("$50:", minimo=0)
     b20 = pedir_entero("$20:", minimo=0)
 
+    #----------INGRESAMOS LAS MONEDAS AQUI----------
+    print("\n-------------------------------")
+    print("        INGRESO DE MONEDAS       ")
+    print("\n-------------------------------")
+    m10 = pedir_entero("Monedas de $10:",minimo=0)
+    m5 = pedir_entero("Monedas de $5:",minimo=0)
+    m2 = pedir_entero("Monedas de $2:",minimo=0)
+    m1 = pedir_entero("Monedas de $1:",minimo=0)
+    m050 = pedir_entero("Monedas de $0.50:",minimo=0)
+
+    #-------CODIGO FONDO---------
+    while True:
+        fondo = pedir_float("¿Cuanto deseas dejar de fondo en caja?")
+        if fondo > total_caja:
+            print("Erorr: No puedes dejar mas dinero del que tienes en caja. Intenta de nuevo.")
+        else:
+            break
+    sobre = total_caja - fondo
+    #----FONDOTOTAL------
+    print("\n--------------------------------------------------")
+    print("\nDINERO CONTADO: $",round(total_caja,2))
+    print("\nDINERO PARA FONDO: $",round(fondo,2))     
+    print("\nDINERO PARA SOBRE: $",round(sobre,2))
+    print("\nFECHA DEL CORTE: $",round(fecha,2))
+    print("\n--------------------------------------------------")
+    print("CORTE FINALIZADO CORRECTAMENTE")
+
     
 
 
