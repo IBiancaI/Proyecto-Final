@@ -194,7 +194,7 @@ def main ():
         opcion = input("Opcion: ").strip()
 
         if opcion == 1:
-            resistrar_ventas()
+            registrar_ventas()
         elif opcion == 2:
             mostrar_resumen()
         elif opcion == 3:
