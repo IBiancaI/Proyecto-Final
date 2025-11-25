@@ -179,6 +179,12 @@ def corte_de_caja ():
     m1 = pedir_entero("Monedas de $1:",minimo=0)
     m050 = pedir_entero("Monedas de $0.50:",minimo=0)
 
+    total_caja = (b1000*1000 + b500*500 + b200*200 + b100*100 +
+                  b50*50 + b20*20 + m10*10 + m5*5 + m2*2 +
+                  m1*1 + m050*0.5)
+    print("===========================================================================")
+    print("TOTAL DE DINERO CONTADO: $", round(total_caja, 2))
+
     #-------CODIGO FONDO---------
     while True:
         fondo = pedir_float("¿Cuanto deseas dejar de fondo en caja?")
