@@ -10,7 +10,7 @@ peliculas_contador = {
 #Contadores de combos y precios
 combos_contador = {c: 0 for c in ["palomitas con cocacola", "palomitas y dos raspados", "palomitas y nachos"]}
     
-precios_combo = {
+combos_precios = {
     "palomitas con cocacola": 150.00,
     "palomitas y dos raspados": 170.00,
     "palomitas y nachos": 199.00
@@ -28,7 +28,7 @@ def pedir_entero (prompt,minimo=None, Maximo=None):
                 continue
             return v
         except ValueError:
-            print("Entrafa invalida. Ingresa un numero entero.")
+            print("Entrada invalida. Ingresa un numero entero.")
 
 def pedir_float (prompt, minimo = None):
     """"Pide un número (float) con validación y devuelve el valor."""
@@ -54,7 +54,7 @@ def mostrar_menu_principal():
 
 
 
-def resistrar_ventas ():
+def registrar_ventas ():
     global total_general
     num_clientes = pedir_entero ("¿Cuántos clientes se registrarán hoy? (0 para volver): ", minimo=0)
     if num_clientes == 0:
@@ -176,3 +176,6 @@ def main ():
             break
         else:
             print("Opcion no valida.")
+
+if __name__ =="__main__":
+    main()
