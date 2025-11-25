@@ -73,15 +73,18 @@ def registrar_ventas ():
         print ("\n3. PacMan")
 
         pelicula_op = input ("Elige una película (1-3): ").strip()
+    try:
+        if pelicula_op == "1":
+            pelicula = "spiderman"
+        elif pelicula_op == "2":
+            pelicula = "Terrifier 3"
+        elif pelicula_op == "3":
+            pelicula = "PacMan"
+        else:
+            print ("Número inválido")
 
-    if pelicula_op == "1":
-        pelicula = "spiderman"
-    elif pelicula_op == "2":
-        pelicula = "Terrifier 3" \
-    elif pelicula_op == "3":
-        pelicula = "PacMan"
-    else:
-        print ("Número inválido")
+    except ValueError:
+        print("Entrafa invalida. Ingresa un numero entero.")
 
     peliculas_contador [pelicula] += 1
 
@@ -157,10 +160,10 @@ def corte_de_caja ():
     print("\n---CORTE DE CAJA---")
 
     #Fecha del corte
-    fecha = ""
     while True:
-        fecha = input("Ingresa la fecha del corte (DD/MM/AAAA):").strip()
-        break
+        if fecha != "":
+            fecha = input("Ingresa la fecha del corte (DD/MM/AAAA):").strip()
+            break
 
     print("\nIngreso de billetes:")
     b1000 = pedir_entero("$1000: ", minimo=0)
@@ -177,7 +180,7 @@ def corte_de_caja ():
 def main ():
     while True:
         mostrar_menu_principal()
-        opcion = input("Opcion: ") .strip()
+        opcion = input("Opcion: ").strip()
 
         if opcion == 1:
             resistrar_ventas()
