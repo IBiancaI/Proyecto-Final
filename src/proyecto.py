@@ -30,7 +30,7 @@ def pedir_entero (prompt,minimo=None, Maximo=None):
                 continue
             return v
         except ValueError:
-            print("Entrafa invalida. Ingresa un numero entero.")
+            print("Entrada invalida. Ingresa un numero entero.")
 
 def pedir_float (prompt, minimo = None):
 
@@ -127,29 +127,36 @@ def determinar_mas_vendido (contador_dict):
 
 
 def mostrar_resumen ():
-    #""""Muestra un resumen sencillo del día.""""
-    print("\n================================================")
-    print("         R E S U M E N   D E L    D I A    ")
-    print("\n================================================")
-    peli_top = determinar_mas_vendido(peliculas_contador)
-    combo_top = determinar_mas_vendido(combos_contador)
+   print("\n================================================")
+   print("         R E S U M E N   D E L    D I A")
+   print("================================================")
+   peli_top = determinar_mas_vendido(peliculas_contador)
+   combo_top = determinar_mas_vendido(combos_contador)
 
-    if peli_top is None:
-        print("Peliculas más vista: Ninguna venta aún.")
-    elif isinstance(peli_top, list):
-        print("Peliculas más vistas (empatadas):",",".join(combo_top))
-    else:
-        print("Combo más vendido:", combo_top)
+   if peli_top is None:
+        print("Películas más vista: Ninguna venta aún.")
+   else:
+        if isinstance(peli_top, list):
+            print("Películas más vistas (empatadas):", ", ".join([p.title() for p in peli_top]))
+        else:
+            print("Película más vista:", peli_top.replace("_", " ").title())
 
-        print("TOTAL DE VENTAS DEL DIA: $", round(total_general, 2))
-        print("Detalles de ventas por pelicula:")
-        for k, v in peliculas_contador.items():
-            print(f"- {k}: {v} boletos/ventas")
-            print("Detalles de ventas por combo:")
-            for k, v in combos_contador.items():
-                print(f"- {k}: {v} unidades")
-                print("=====================================================================")
+   if combo_top is None:
+        print("Combo más vendido: Ninguno aún.")
+   else:
+        if isinstance(combo_top, list):
+            print("Combos más vendidos (empatados):", ", ".join([c.replace("cocacola", "Coca-Cola").title() for c in combo_top]))
+        else:
+            print("Combo más vendido:", combo_top.replace("cocacola", "Coca-Cola").title())
 
+   print("TOTAL DE VENTAS DEL DÍA: $", round(total_general, 2))
+   print("\nDetalles de ventas por película:")
+   for k, v in peliculas_contador.items():
+        print(f"- {k.replace('_', ' ').title()}: {v} boletos/ventas")
+   print("\nDetalles de ventas por combo:")
+   for k, v in combos_contador.items():
+        print(f"- {k.replace('cocacola', 'Coca-Cola').title()}: {v} unidades")
+   print("=====================================================================")
 
 def corte_de_caja ():
     print("\n---CORTE DE CAJA---")
@@ -221,3 +228,6 @@ def main ():
             break
         else:
             print("Opcion no valida.")
+
+if __name__ =="__main__":
+    main()
