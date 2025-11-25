@@ -10,7 +10,7 @@ peliculas_contador = {
 #Contadores de combos y precios
 combos_contador = {c: 0 for c in ["palomitas con cocacola", "palomitas y dos raspados", "palomitas y nachos"]}
     
-combos_pecios = {
+combos_precios = {
     "palomitas con cocacola": 150.00,
     "palomitas y dos raspados": 170.00,
     "palomitas y nachos": 199.00
@@ -113,11 +113,11 @@ def registrar_ventas ():
     print ("Total a pagar: $", round(total_cliente, 2))
 
 
-def determinar_mas_vendido ():
+def determinar_mas_vendido (contador_dict):
     max_val = -1
     winners = []
     for k, v in contador_dict.items():
-        if v > max__val:
+        if v > max_val:
             max_val = v
             winners =  [k]
         elif v == max_val:
@@ -158,8 +158,8 @@ def corte_de_caja ():
     #Fecha del corte
     while True:
         fecha = input("Ingresa la fecha del corte (DD/MM/AAAA):").strip()
-        
-        break
+        if fecha != "":
+            break
 
     print("\nIngreso de billetes:")
     b1000 = pedir_entero("$1000: ", minimo=0)
@@ -178,6 +178,12 @@ def corte_de_caja ():
     m2 = pedir_entero("Monedas de $2:",minimo=0)
     m1 = pedir_entero("Monedas de $1:",minimo=0)
     m050 = pedir_entero("Monedas de $0.50:",minimo=0)
+
+    total_caja = (b1000*1000 + b500*500 + b200*200 + b100*100 +
+                  b50*50 + b20*20 + m10*10 + m5*5 + m2*2 +
+                  m1*1 + m050*0.5)
+    print("===========================================================================")
+    print("TOTAL DE DINERO CONTADO: $", round(total_caja, 2))
 
     #-------CODIGO FONDO---------
     while True:
@@ -206,7 +212,7 @@ def main ():
         opcion = input("Opcion: ") .strip()
 
         if opcion == 1:
-            resistrar_ventas()
+            registrar_ventas()
         elif opcion == 2:
             mostrar_resumen()
         elif opcion == 3:
