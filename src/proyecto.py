@@ -115,10 +115,21 @@ def registrar_ventas ():
 
 
 def determinar_mas_vendido ():
+    max_val = -1
+    winners = []
+    for k, v in contador_dict.items():
+        if v > max__val:
+            max_val = v
+            winners =  [k]
+        elif v == max_val:
+            winners.append(k)
+    if max_val == 0:
+        return None #NADA VENDIDO
+    return winners if len(winners) > 1 else winners[0]  
 
 
 def mostrar_resumen ():
-    """"Muestra un resumen sencillo del día.""""
+    #""""Muestra un resumen sencillo del día.""""
     print("\n================================================")
     print("         R E S U M E N   D E L    D I A    ")
     print("\n================================================")
