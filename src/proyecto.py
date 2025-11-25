@@ -10,7 +10,7 @@ peliculas_contador = {
 #Contadores de combos y precios
 combos_contador = {c: 0 for c in ["palomitas con cocacola", "palomitas y dos raspados", "palomitas y nachos"]}
     
-combos_pecio = {
+precios_combo = {
     "palomitas con cocacola": 150.00,
     "palomitas y dos raspados": 170.00,
     "palomitas y nachos": 199.00
@@ -31,7 +31,7 @@ def pedir_entero (prompt,minimo=None, Maximo=None):
             print("Entrafa invalida. Ingresa un numero entero.")
 
 def pedir_float (prompt, minimo = None):
-    #""""Pide un número (float) con validación y devuelve el valor."""
+    """"Pide un número (float) con validación y devuelve el valor."""
     while True:
         try:
             v = float(input(prompt))
@@ -71,20 +71,16 @@ def registrar_ventas ():
         print ("\n1. Spiderman")
         print ("\n2. Terrifier 3")
         print ("\n3. PacMan")
-    #Selección de pelis
-        pelicula_op = input ("Elige una película (1-3): ").strip()
-    try:
-        if pelicula_op == "1":
-            pelicula = "spiderman"
-        elif pelicula_op == "2":
-            pelicula = "Terrifier 3"
-        elif pelicula_op == "3":
-            pelicula = "PacMan"
-        else:
-            print ("Número inválido")
 
-    except ValueError:
-        print("Entrafa invalida. Ingresa un numero entero.")
+        pelicula_op = input ("Elige una película (1-3): ").strip()
+    if pelicula_op == "1":
+        pelicula = "spiderman"
+    elif pelicula_op == "2":
+        pelicula = "Terrifier 3" 
+    elif pelicula_op == "3":
+        pelicula = "PacMan"
+    else:
+        print ("Número inválido")
 
     peliculas_contador [pelicula] += 1
 
@@ -161,14 +157,11 @@ def corte_de_caja ():
 
     #Fecha del corte
     while True:
-        if fecha != "":
-            fecha = input("Ingresa la fecha del corte (DD/MM/AAAA):").strip()
-            break
+        fecha = input("Ingresa la fecha del corte (DD/MM/AAAA):").strip()
+        
+        break
 
-#----------INGRESAMOS LAS BILLETES AQUI----------
-    print("\n-------------------------------")
-    print("\nIngreso de billetes")
-    print("\n-------------------------------")
+    print("\nIngreso de billetes:")
     b1000 = pedir_entero("$1000: ", minimo=0)
     b500  = pedir_entero("$500: ", minimo=0)
     b200 = pedir_entero("$200:", minimo=0)
@@ -176,40 +169,17 @@ def corte_de_caja ():
     b50 = pedir_entero("$50:", minimo=0)
     b20 = pedir_entero("$20:", minimo=0)
 
-#----------INGRESAMOS LAS MONEDAS AQUI----------
-    print("\n-------------------------------")
-    print("        INGRESO DE MONEDAS       ")
-    print("\n-------------------------------")
-    m10 = pedir_entero("Monedas de $10:",minimo=0)
-    m5 = pedir_entero("Monedas de $5:",minimo=0)
-    m2 = pedir_entero("Monedas de $2:",minimo=0)
-    m1 = pedir_entero("Monedas de $1:",minimo=0)
-    m050 = pedir_entero("Monedas de $0.50:",minimo=0)
+    
 
-    #-------CODIGO FONDO---------
-    while True:
-        fondo = pedir_float("¿Cuanto deseas dejar de fondo en caja?")
-        if fondo > total_caja:
-            print("Erorr: No puedes dejar mas dinero del que tienes en caja. Intenta de nuevo.")
-        else:
-            break
-    sobre = total_caja - fondo
-    #----FONDOTOTAL------
-    print("\n--------------------------------------------------")
-    print("\nDINERO CONTADO: $",round(total_caja,2))
-    print("\nDINERO PARA FONDO: $",round(fondo,2))     
-    print("\nDINERO PARA SOBRE: $",round(sobre,2))
-    print("\nFECHA DEL CORTE: $",round(fecha,2))
-    print("\n--------------------------------------------------")
-    print("CORTE FINALIZADO CORRECTAMENTE")
+
 
 def main ():
     while True:
         mostrar_menu_principal()
-        opcion = input("Opcion: ").strip()
+        opcion = input("Opcion: ") .strip()
 
         if opcion == 1:
-            registrar_ventas()
+            resistrar_ventas()
         elif opcion == 2:
             mostrar_resumen()
         elif opcion == 3:
