@@ -64,7 +64,7 @@ def registrar_ventas ():
         print (f"\n                            CLIENTE {i+1}")
         print ("\n------------------------------------------------------------------------------")
         nombre = input ("Ingresa nombre: ").strip()
-        edad = pedir_entero ("Ingresa la edad: ", nombre)
+        edad = pedir_entero ("Ingresa la edad: ", minimo= 0)
 
         print ("\nPelículas disponibles")
         print ("\n1. Spiderman")
