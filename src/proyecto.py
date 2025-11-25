@@ -31,7 +31,7 @@ def pedir_entero (prompt,minimo=None, Maximo=None):
             print("Entrafa invalida. Ingresa un numero entero.")
 
 def pedir_float (prompt, minimo = None):
-    """"Pide un número (float) con validación y devuelve el valor."""
+    #""""Pide un número (float) con validación y devuelve el valor."""
     while True:
         try:
             v = float(input(prompt))
