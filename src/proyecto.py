@@ -10,7 +10,7 @@ peliculas_contador = {
 #Contadores de combos y precios
 combos_contador = {c: 0 for c in ["palomitas con cocacola", "palomitas y dos raspados", "palomitas y nachos"]}
     
-precios_combo = {
+combos_pecios = {
     "palomitas con cocacola": 150.00,
     "palomitas y dos raspados": 170.00,
     "palomitas y nachos": 199.00
