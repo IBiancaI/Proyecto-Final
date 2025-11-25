@@ -217,13 +217,13 @@ def main ():
         mostrar_menu_principal()
         opcion = input("Opcion: ") .strip()
 
-        if opcion == 1:
+        if opcion == "1":
             registrar_ventas()
-        elif opcion == 2:
+        elif opcion == "2":
             mostrar_resumen()
-        elif opcion == 3:
+        elif opcion == "3":
             corte_de_caja()
-        elif opcion == 4:
+        elif opcion == "4":
             print("Saliendo del programa. ¡Adios!")
             break
         else:
