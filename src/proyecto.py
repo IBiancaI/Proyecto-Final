@@ -15,7 +15,9 @@ combos_precios = {
     "palomitas y dos raspados": 170.00,
     "palomitas y nachos": 199.00
 }
-
+print("==============================================")
+print("       BIENVENIDO AL CINE PYTHON")
+print("==============================================")
 def pedir_entero (prompt,minimo=None, Maximo=None):
     while True:
         try:
@@ -31,7 +33,7 @@ def pedir_entero (prompt,minimo=None, Maximo=None):
             print("Entrafa invalida. Ingresa un numero entero.")
 
 def pedir_float (prompt, minimo = None):
-    #""""Pide un número (float) con validación y devuelve el valor."""
+
     while True:
         try:
             v = float(input(prompt))
@@ -67,12 +69,13 @@ def registrar_ventas ():
         nombre = input ("Ingresa nombre: ").strip()
         edad = pedir_entero ("Ingresa la edad: ", nombre)
 
+        # Películas disponibles
         print ("\nPelículas disponibles")
         print ("\n1. Spiderman")
         print ("\n2. Terrifier 3")
         print ("\n3. PacMan")
-
         pelicula_op = input ("Elige una película (1-3): ").strip()
+
     if pelicula_op == "1":
         pelicula = "spiderman"
     elif pelicula_op == "2":
@@ -80,11 +83,11 @@ def registrar_ventas ():
     elif pelicula_op == "3":
         pelicula = "PacMan"
     else:
-        print ("Número inválido")
-
+         print("Número inválido, se registrará como 'spiderman' por defecto.")
+    pelicula = "spiderman"
     peliculas_contador [pelicula] += 1
 
-
+ # Combos disponibles
     print ("\n Combos disponibles")
     print ("\n 1. Palomitas con Coca-cola - $250")
     print ("\n 2. Palomitas y dos raspados - $ 280")
@@ -104,7 +107,7 @@ def registrar_ventas ():
     total_cliente = precio_combo
 
     total_general += total_cliente
-
+# Mostrar registro del cliente
     print ("\nRegistro de cliente")
     print ("Nombre:", nombre)
     print ("Edad", edad)
