@@ -212,7 +212,7 @@ def corte_de_caja ():
     print("\nDINERO CONTADO: $",round(total_caja,2))
     print("\nDINERO PARA FONDO: $",round(fondo,2))     
     print("\nDINERO PARA SOBRE: $",round(sobre,2))
-    print("\nFECHA DEL CORTE: $",round(fecha,2))
+    print("\nFECHA DEL CORTE:", fecha)
     print("\n--------------------------------------------------")
     print("CORTE FINALIZADO CORRECTAMENTE")
 
