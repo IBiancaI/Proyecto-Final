@@ -35,7 +35,7 @@ def pedir_entero (prompt,minimo=None, Maximo=None):
 
 def leer_archivo (archivo, lista):
     try:
-        with open("ventas/"+archivo+".csv","r",newline="") as file:
+        with open(""+archivo+".csv","r",newline="") as file:
             reader = csv.DictReader(file)
             for fila in reader:
                 lista.append(fila)
@@ -132,10 +132,10 @@ def registrar_ventas ():
         print("Total a pagar: $", round(total_cliente, 2))
 
 
-def escribir_archivo ():
+def escribir_archivo (archivo):
     try:
         with open("ventas/"+archivo+".csv","w",newline="") as file:
-            writer = csv.DictWriter(file, ["Producto","Cantidad","Precio Unitario"])
+            writer = csv.DictWriter(file, ["Combo", "Precio"])
             writer.writeheader()
             writer.writerows(combos_contador)
     except:

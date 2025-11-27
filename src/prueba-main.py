@@ -2,16 +2,19 @@ import prueba_txt as fn
 import csv
 
 def main ():
+    combos_precios = []
+    archivo = input("Ingrese el nombre del archivo de ventas: ")
+    ventas = fn.leer_archivo(archivo,combos_precios)
     while True:
-        mostrar_menu_principal()
-        opcion = input("Opcion: ") .strip()
+    
+        opcion = fn.mostrar_menu_principal()
 
         if opcion == "1":
-            registrar_ventas()
+            combos_precios = fn.registrar_ventas()
         elif opcion == "2":
-            mostrar_resumen()
+            combos_precios = fn.mostrar_resumen()
         elif opcion == "3":
-            corte_de_caja()
+            combos_precios = fn.corte_de_caja()
         elif opcion == "4":
             print("Saliendo del programa. ¡Adios!")
             break
