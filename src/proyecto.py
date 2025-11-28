@@ -124,7 +124,7 @@ def registrar_ventas ():
 
             print("Venta guarda en ventas.csv")
 
-
+#determinar lo mas vendido
 def determinar_mas_vendido (contador_dict):
     max_val = -1
     winners = []
