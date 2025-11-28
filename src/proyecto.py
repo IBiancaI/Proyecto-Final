@@ -72,44 +72,44 @@ def registrar_ventas ():
         print ("\n3. PacMan")
 
         pelicula_op = input ("Elige una película (1-3): ").strip()
-    if pelicula_op == "1":
-        pelicula = "spiderman"
-    elif pelicula_op == "2":
-        pelicula = "terrifier 3" 
-    elif pelicula_op == "3":
-        pelicula = "pac_man"
-    else:
-        print ("Número inválido")
+        if pelicula_op == "1":
+            pelicula = "spiderman"
+        elif pelicula_op == "2":
+            pelicula = "terrifier 3" 
+        elif pelicula_op == "3":
+            pelicula = "pac_man"
+        else:
+            print ("Número inválido")
 
-    peliculas_contador [pelicula] += 1
+        peliculas_contador [pelicula] += 1
 
 
-    print ("\n Combos disponibles")
-    print ("\n 1. Palomitas con Coca-cola - $150")
-    print ("\n 2. Palomitas y dos raspados - $ 170")
-    print ("\n 3. Palomitas y nachos - $199")
-    combo_op = input ("Elige un combo (1-3): ").strip()
-    if combo_op == "1":
-        combo = "palomitas con cocacola"
-    elif combo_op == "2":
-        combo = "palomitas y dos raspados"
-    elif combo_op == "3":
-        combo = "palomitas y nachos"
-    else:
-        print ("Número inválido")
+        print ("\n Combos disponibles")
+        print ("\n 1. Palomitas con Coca-cola - $150")
+        print ("\n 2. Palomitas y dos raspados - $ 170")
+        print ("\n 3. Palomitas y nachos - $199")
+        combo_op = input ("Elige un combo (1-3): ").strip()
+        if combo_op == "1":
+            combo = "palomitas con cocacola"
+        elif combo_op == "2":
+            combo = "palomitas y dos raspados"
+        elif combo_op == "3":
+            combo = "palomitas y nachos"
+        else:
+            print ("Número inválido")
 
-    precio_combo = combos_precios[combo]
-    combos_contador [combo] += 1
-    total_cliente = precio_combo
+        precio_combo = combos_precios[combo]
+        combos_contador [combo] += 1
+        total_cliente = precio_combo
 
-    total_general += total_cliente
+        total_general += total_cliente
 
-    print ("\nRegistro de cliente")
-    print ("Nombre:", nombre)
-    print ("Edad", edad)
-    print ("Película", pelicula)
-    print ("Combo", combo)
-    print ("Total a pagar: $", round(total_cliente, 2))
+        print ("\nRegistro de cliente")
+        print ("Nombre:", nombre)
+        print ("Edad", edad)
+        print ("Película", pelicula)
+        print ("Combo", combo)
+        print ("Total a pagar: $", round(total_cliente, 2))
 
 
 def determinar_mas_vendido (contador_dict):
