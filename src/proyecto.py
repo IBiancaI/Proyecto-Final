@@ -246,7 +246,7 @@ print("CORTE FINALIZADO CORRECTAMENTE")
     
 
 
-
+#impresion del menu principal
 def main ():
     while True:
         mostrar_menu_principal()
