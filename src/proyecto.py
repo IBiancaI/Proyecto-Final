@@ -118,7 +118,7 @@ def registrar_ventas ():
         with open(file, mode="a", newline="", encoding="utf-8") as f:
             escritor = csv.writer(f)
 
-            escritor.writerow(["Nombre" "Edad" "Pelicula" "Combo" "Total"])
+            escritor.writerow(["Nombre", "Edad", "Pelicula", "Combo", "Total"])
             # Venta del cliente
             escritor.writerow([nombre , edad , pelicula , combo , total_cliente])
 
@@ -208,7 +208,7 @@ def corte_de_caja ():
     while True:
         fondo = pedir_float("¿Cuanto deseas dejar de fondo en caja?")
         if fondo > total_caja:
-            print("Erorr: No puedes dejar mas dinero del que tienes en caja. Intenta de nuevo.")
+            print("Error: No puedes dejar mas dinero del que tienes en caja. Intenta de nuevo.")
         else:
             break
     sobre = total_caja - fondo
