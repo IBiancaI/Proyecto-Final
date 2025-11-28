@@ -44,7 +44,7 @@ def pedir_float (prompt, minimo = None):
         except ValueError:
             print("Entrada invalida. Ingresa un número válido.")
 
-
+#menu principal
 def mostrar_menu_principal():
     print("\n---MENU PRINCIPAL---")
     print("1. Registrar ventas")
