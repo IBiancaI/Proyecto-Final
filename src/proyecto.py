@@ -111,6 +111,19 @@ def registrar_ventas ():
         print ("Combo", combo)
         print ("Total a pagar: $", round(total_cliente, 2))
 
+        #==== Guardar venta en CSV =====
+        import csv
+        file = "ventas.csv"
+
+        with open(file, mode="a", newline="", encoding="utf-8") as f:
+            escritor = csv.writer(f)
+
+            escritor.writerow(["Nombre","Edad","Pelicula","Combo","Total"])
+            # Venta del cliente
+            escritor.writerow([nombre,edad,pelicula,combo,total_cliente])
+
+            print("Venta guarda en ventas.csv")
+
 
 def determinar_mas_vendido (contador_dict):
     max_val = -1
