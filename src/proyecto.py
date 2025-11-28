@@ -44,7 +44,7 @@ def pedir_float (prompt, minimo = None):
         except ValueError:
             print("Entrada invalida. Ingresa un número válido.")
 
-
+#menu principal
 def mostrar_menu_principal():
     print("\n---MENU PRINCIPAL---")
     print("1. Registrar ventas")
@@ -52,7 +52,7 @@ def mostrar_menu_principal():
     print("3. Corte de caja")
     print("4. Salir")
 
-
+#registrar ventas
 def registrar_ventas ():
     global total_general
     num_clientes = pedir_entero("¿Cuántos clientes se registrarán hoy? (0 para volver): ", minimo=0)
@@ -70,7 +70,8 @@ def registrar_ventas ():
         print ("\n1. Spiderman")
         print ("\n2. Terrifier 3")
         print ("\n3. PacMan")
-
+        
+#Eleccion de pelicula
         pelicula_op = input ("Elige una película (1-3): ").strip()
         if pelicula_op == "1":
             pelicula = "spiderman"
@@ -83,7 +84,7 @@ def registrar_ventas ():
 
         peliculas_contador [pelicula] += 1
 
-
+#Eleccion de combo
         print ("\n Combos disponibles")
         print ("\n 1. Palomitas con Coca-cola - $150")
         print ("\n 2. Palomitas y dos raspados - $ 170")
@@ -104,6 +105,7 @@ def registrar_ventas ():
 
         total_general += total_cliente
 
+#Registro del cliente
         print ("\nRegistro de cliente")
         print ("Nombre:", nombre)
         print ("Edad", edad)
@@ -124,7 +126,7 @@ def registrar_ventas ():
 
             print("Venta guarda en ventas.csv")
 
-
+#determinar lo mas vendido
 def determinar_mas_vendido (contador_dict):
     max_val = -1
     winners = []
@@ -138,7 +140,7 @@ def determinar_mas_vendido (contador_dict):
         return None #NADA VENDIDO
     return winners if len(winners) > 1 else winners[0]  
 
-
+#se muestra el resumen del dia
 def mostrar_resumen ():
    print("\n================================================")
    print("         R E S U M E N   D E L    D I A")
@@ -180,6 +182,7 @@ def corte_de_caja ():
         if fecha != "":
             break
 
+#----------INGRESAMOS LOS BILLETES AQUI----------
     print("\nIngreso de billetes:")
     b1000 = pedir_entero("$1000: ", minimo=0)
     b500  = pedir_entero("$500: ", minimo=0)
@@ -219,12 +222,34 @@ def corte_de_caja ():
     print("\nDINERO PARA SOBRE: $",round(sobre,2))
     print("\nFECHA DEL CORTE: ",fecha)
     print("\n--------------------------------------------------")
-    print("CORTE FINALIZADO CORRECTAMENTE")
+
+    #=====Guardar corte en CSV=====
+    import csv
+    archivo =  "corte_caja.csv"
+
+    with open (archivo, mode="a", newline="", encoding="utf-8") as f:
+
+        escritor = csv.writer(f)
+
+        escritor.writerow([
+            "Fecha", "Total contado", "Fondo", "Sobre",
+            "B1000", "B500", "B200", "B100", "B50", "B20",
+            "M10", "M5", "M2", "M1", "M050"
+        ])
+        escritor.writerow([
+            fecha, total_caja, fondo, sobre,
+            b1000, b500, b200, b100, b50, b20,
+            m10, m5, m2, m1, m050
+        ])
+
+    print("corte guardado en corte_caja.scv")
+
+print("CORTE FINALIZADO CORRECTAMENTE")
 
     
 
 
-
+#impresion del menu principal
 def main ():
     while True:
         mostrar_menu_principal()
