@@ -118,9 +118,9 @@ def registrar_ventas ():
         with open(file, mode="a", newline="", encoding="utf-8") as f:
             escritor = csv.writer(f)
 
-            escritor.writerow(["Nombre","Edad","Pelicula","Combo","Total"])
+            escritor.writerow(["Nombre" "Edad" "Pelicula" "Combo" "Total"])
             # Venta del cliente
-            escritor.writerow([nombre,edad,pelicula,combo,total_cliente])
+            escritor.writerow([nombre , edad , pelicula , combo , total_cliente])
 
             print("Venta guarda en ventas.csv")
 
