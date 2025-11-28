@@ -103,7 +103,8 @@ def registrar_ventas ():
         total_cliente = precio_combo
 
         total_general += total_cliente
-
+        
+#Registro del cliente
         print ("\nRegistro de cliente")
         print ("Nombre:", nombre)
         print ("Edad", edad)
@@ -179,7 +180,7 @@ def corte_de_caja ():
         fecha = input("Ingresa la fecha del corte (DD/MM/AAAA):").strip()
         if fecha != "":
             break
-        
+
 #----------INGRESAMOS LOS BILLETES AQUI----------
     print("\nIngreso de billetes:")
     b1000 = pedir_entero("$1000: ", minimo=0)
