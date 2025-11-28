@@ -70,7 +70,8 @@ def registrar_ventas ():
         print ("\n1. Spiderman")
         print ("\n2. Terrifier 3")
         print ("\n3. PacMan")
-
+        
+#Eleccion de pelicula
         pelicula_op = input ("Elige una película (1-3): ").strip()
         if pelicula_op == "1":
             pelicula = "spiderman"
