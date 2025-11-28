@@ -53,12 +53,9 @@ def mostrar_menu_principal():
     print("4. Salir")
 
 
-
-
-
 def registrar_ventas ():
     global total_general
-    num_clientes = pedir_entero ("¿Cuántos clientes se registrarán hoy? (0 para volver): ", minimo=0)
+    num_clientes = pedir_entero("¿Cuántos clientes se registrarán hoy? (0 para volver): ", minimo=0)
     if num_clientes == 0:
         return
     
@@ -67,53 +64,65 @@ def registrar_ventas ():
         print (f"\n                            CLIENTE {i+1}")
         print ("\n------------------------------------------------------------------------------")
         nombre = input ("Ingresa nombre: ").strip()
-        edad = pedir_entero ("Ingresa la edad: ", nombre)
+        edad = pedir_entero ("Ingresa la edad: ", minimo=1)
 
-        # Películas disponibles
         print ("\nPelículas disponibles")
         print ("\n1. Spiderman")
         print ("\n2. Terrifier 3")
         print ("\n3. PacMan")
+
         pelicula_op = input ("Elige una película (1-3): ").strip()
+        if pelicula_op == "1":
+            pelicula = "spiderman"
+        elif pelicula_op == "2":
+            pelicula = "terrifier 3" 
+        elif pelicula_op == "3":
+            pelicula = "pac_man"
+        else:
+            print ("Número inválido")
 
-    if pelicula_op == "1":
-        pelicula = "spiderman"
-    elif pelicula_op == "2":
-        pelicula = "Terrifier 3" 
-    elif pelicula_op == "3":
-        pelicula = "PacMan"
-    else:
-         print("Número inválido, se registrará como 'spiderman' por defecto.")
-    pelicula = "spiderman"
-    peliculas_contador [pelicula] += 1
+        peliculas_contador [pelicula] += 1
 
- # Combos disponibles
-    print ("\n Combos disponibles")
-    print ("\n 1. Palomitas con Coca-cola - $250")
-    print ("\n 2. Palomitas y dos raspados - $ 280")
-    print ("\n 3. Palomitas y nachos - $")
-    combo_op = input ("Elige un combo (1-3): ").strip()
-    if combo_op == "1":
-        combo = "Palomitas con Coca-cola"
-    elif combo_op == "2":
-        combo = "Palomitas y dos raspados"
-    elif combo_op == "3":
-        combo = "Palomitas y nachos"
-    else:
-        print ("Número inválido")
 
-    precio_combo = combos_precios[combo]
-    combos_contador [combo] += 1
-    total_cliente = precio_combo
+        print ("\n Combos disponibles")
+        print ("\n 1. Palomitas con Coca-cola - $150")
+        print ("\n 2. Palomitas y dos raspados - $ 170")
+        print ("\n 3. Palomitas y nachos - $199")
+        combo_op = input ("Elige un combo (1-3): ").strip()
+        if combo_op == "1":
+            combo = "palomitas con cocacola"
+        elif combo_op == "2":
+            combo = "palomitas y dos raspados"
+        elif combo_op == "3":
+            combo = "palomitas y nachos"
+        else:
+            print ("Número inválido")
 
-    total_general += total_cliente
-# Mostrar registro del cliente
-    print ("\nRegistro de cliente")
-    print ("Nombre:", nombre)
-    print ("Edad", edad)
-    print ("Película", pelicula)
-    print ("Combo", combo)
-    print ("Total a pagar: $", round(total_cliente, 2))
+        precio_combo = combos_precios[combo]
+        combos_contador [combo] += 1
+        total_cliente = precio_combo
+
+        total_general += total_cliente
+
+        print ("\nRegistro de cliente")
+        print ("Nombre:", nombre)
+        print ("Edad", edad)
+        print ("Película", pelicula)
+        print ("Combo", combo)
+        print ("Total a pagar: $", round(total_cliente, 2))
+
+        #==== Guardar venta en CSV =====
+        import csv
+        file = "ventas.csv"
+
+        with open(file, mode="a", newline="", encoding="utf-8") as f:
+            escritor = csv.writer(f)
+
+            escritor.writerow(["Nombre" "Edad" "Pelicula" "Combo" "Total"])
+            # Venta del cliente
+            escritor.writerow([nombre , edad , pelicula , combo , total_cliente])
+
+            print("Venta guarda en ventas.csv")
 
 
 def determinar_mas_vendido (contador_dict):
@@ -208,7 +217,7 @@ def corte_de_caja ():
     print("\nDINERO CONTADO: $",round(total_caja,2))
     print("\nDINERO PARA FONDO: $",round(fondo,2))     
     print("\nDINERO PARA SOBRE: $",round(sobre,2))
-    print("\nFECHA DEL CORTE: $",round(fecha,2))
+    print("\nFECHA DEL CORTE: ",fecha)
     print("\n--------------------------------------------------")
 
     #=====Guardar corte en CSV=====
@@ -243,13 +252,13 @@ def main ():
         mostrar_menu_principal()
         opcion = input("Opcion: ") .strip()
 
-        if opcion == 1:
+        if opcion == "1":
             registrar_ventas()
-        elif opcion == 2:
+        elif opcion == "2":
             mostrar_resumen()
-        elif opcion == 3:
+        elif opcion == "3":
             corte_de_caja()
-        elif opcion == 4:
+        elif opcion == "4":
             print("Saliendo del programa. ¡Adios!")
             break
         else:
