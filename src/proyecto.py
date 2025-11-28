@@ -52,7 +52,7 @@ def mostrar_menu_principal():
     print("3. Corte de caja")
     print("4. Salir")
 
-
+#registrar ventas
 def registrar_ventas ():
     global total_general
     num_clientes = pedir_entero("¿Cuántos clientes se registrarán hoy? (0 para volver): ", minimo=0)
