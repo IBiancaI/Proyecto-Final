@@ -210,7 +210,29 @@ def corte_de_caja ():
     print("\nDINERO PARA SOBRE: $",round(sobre,2))
     print("\nFECHA DEL CORTE: $",round(fecha,2))
     print("\n--------------------------------------------------")
-    print("CORTE FINALIZADO CORRECTAMENTE")
+
+    #=====Guardar corte en CSV=====
+    import csv
+    archivo =  "corte_caja.csv"
+
+    with open (archivo, mode="a", newline="", encoding="utf-8") as f:
+
+        escritor = csv.writer(f)
+
+        escritor.writerow([
+            "Fecha", "Total contado", "Fondo", "Sobre",
+            "B1000", "B500", "B200", "B100", "B50", "B20",
+            "M10", "M5", "M2", "M1", "M050"
+        ])
+        escritor.writerow([
+            fecha, total_caja, fondo, sobre,
+            b1000, b500, b200, b100, b50, b20,
+            m10, m5, m2, m1, m050
+        ])
+
+    print("corte guardado en corte_caja.scv")
+
+print("CORTE FINALIZADO CORRECTAMENTE")
 
     
 
