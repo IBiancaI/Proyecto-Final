@@ -138,7 +138,7 @@ def determinar_mas_vendido (contador_dict):
         return None #NADA VENDIDO
     return winners if len(winners) > 1 else winners[0]  
 
-
+#se muestra el resumen del dia
 def mostrar_resumen ():
    print("\n================================================")
    print("         R E S U M E N   D E L    D I A")
