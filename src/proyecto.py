@@ -83,7 +83,7 @@ def registrar_ventas ():
 
         peliculas_contador [pelicula] += 1
 
-
+#Eleccion de combo
         print ("\n Combos disponibles")
         print ("\n 1. Palomitas con Coca-cola - $150")
         print ("\n 2. Palomitas y dos raspados - $ 170")
@@ -103,7 +103,7 @@ def registrar_ventas ():
         total_cliente = precio_combo
 
         total_general += total_cliente
-        
+
 #Registro del cliente
         print ("\nRegistro de cliente")
         print ("Nombre:", nombre)
